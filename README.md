@@ -7,5 +7,10 @@ The Tree class is instantiated with an array of integer values (ex: const tree =
         console.log(tree.getTreeDepthMaxima());
 
 I assumed the following:
-    - all array values are numerical
-    - if two consecutive values are identical, the second value will be the left node of the first
+        - all array values are numerical
+        - if two consecutive values are identical, the second value will be the left node of the first
+
+## Testing
+To see this bit of functionality in action, follow these steps:
+        - npm start
+        - go to localhost:3000
