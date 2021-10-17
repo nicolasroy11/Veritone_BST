@@ -2,6 +2,7 @@ import express from 'express';
 import Tree from './bst';
 
 const app = express();
+app.set('json spaces', 4);
 const port = 3000;
 
 app.get('/', (req, res) => {
