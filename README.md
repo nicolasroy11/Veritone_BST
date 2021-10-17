@@ -6,7 +6,8 @@ To see this bit of functionality in action, follow these steps:
 2. npm start (this installs dependencies, compiles TypeScript, and fires up the very rudimentary Node server)
 3. go to localhost:3000
 4. to see a tree structure, use the following pattern: http://localhost:3000/tree?values=[12,11,90,32,8]
-4. to see the maxima of the tree as required by the exercise, use the following pattern: http://localhost:3000/tree/max-depth?values=[12,11,90,32,8]
+5. to see the maxima of the tree as required by the exercise, use the following pattern: http://localhost:3000/tree/max-depth?values=[12,11,90,32,8]
+6. from there, you can change the values at will to test
 
 ## Implementation of a binary search tree
 The Tree class is instantiated with an array of integer values (ex: const tree = new Tree([12, 11, 10, 90, 82, 7, 9, 9])). To obtain the deepest value or values (several values can exist at the same depth), the user has to invoke the getTreeDepthMaxima() method on the tree instance. Example below:
@@ -15,5 +16,5 @@ The Tree class is instantiated with an array of integer values (ex: const tree =
         console.log(tree.getTreeDepthMaxima());
 
 I assumed the following: 
-- all array values are numerical
+- all array values are numerical (from requirement "The BST must be built from a list of integers". Characters will result in an API error)
 - if two consecutive values are identical, the second value will be the left node of the first
