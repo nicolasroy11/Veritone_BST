@@ -32,7 +32,7 @@ class TreeDepthMaxima {
 
 export default class Tree {
     private rootNode: BSTNode | null;
-    private depthHash: { [depth: number]: number[] } = {};
+    private depthHash: { [depth: number]: number[] } = {};  // Key is node level, and value is an array of all the tree values at that node level.
     constructor(data: number[]) {
         if (data.length > 0) {
             this.depthHash[0] = [data[0]];
