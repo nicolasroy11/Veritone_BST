@@ -49,8 +49,11 @@ export default class Tree {
     }
 
     public getTreeDepthMaxima(): TreeDepthMaxima {
-        if (!Object.keys(this.depthHash).length) return new TreeDepthMaxima();  // 
+        if (!Object.keys(this.depthHash).length) return new TreeDepthMaxima(); 
         const deepestDepth = Object.keys(this.depthHash).sort((a: any, b: any) => b - a)[0];
-        return { deepest: (this.depthHash[+deepestDepth].length > 1 ? this.depthHash[+deepestDepth] : this.depthHash[+deepestDepth][0]), depth: +deepestDepth};
+        return {
+            deepest: (this.depthHash[+deepestDepth].length > 1 ? this.depthHash[+deepestDepth] : this.depthHash[+deepestDepth][0]),
+            depth: +deepestDepth
+        };
     }
 }
