@@ -1,60 +1,25 @@
-class BSTNode {
-    constructor(data: number) {
-        this.data = data;
-        this.left = undefined;
-        this.right = undefined;
-    }
-    public data: number;
-    public left: BSTNode | undefined;
-    public right: BSTNode | undefined;
-    public insert(data: number, depthHash?: any) {
-        this._insert(data, 0, depthHash);
-    }
+import express from 'express';
+import Tree from './bst';
 
-    private _insert(data: number, depth: number = 0, depthHash?: any) {
-        if (data <= this.data && this.left) {
-            this.left._insert(data, ++depth, depthHash);
-        } else if (data <= this.data) {
-            this.left = new BSTNode(data);
-            depthHash && (++depth, depthHash[depth] ? depthHash[depth].push(this.left.data) : depthHash[depth] = [this.left.data]);
-        } else if (data > this.data && this.right) {
-            this.right._insert(data, ++depth, depthHash);
-        } else if (data > this.data) {
-            this.right = new BSTNode(data);
-            depthHash && (++depth, depthHash[depth] ? depthHash[depth].push(this.right.data) : depthHash[depth] = [this.right.data]);
-        }
-    }
-}
+const app = express();
+const port = 3000;
 
-class TreeDepthMaxima {
-    depth: number = 0;
-    deepest: any[] = [];
-}
+app.get('/', (req, res) => {
+    res.send('Welcome to the best BST builder API everz!');
+});
 
-class Tree {
-    private rootNode: BSTNode | null;
-    private depthHash: { [depth: number]: any } = {};
-    constructor(data: number[]) {
-        if (data.length > 0) {
-            this.depthHash[0] = data[0];
-            this.rootNode = new BSTNode(<number>data.shift());
-            data.forEach((elem: number) => (<BSTNode>this.rootNode).insert(elem, this.depthHash));
-        } else {
-            this.rootNode = null;
-        }
-    }
+app.get('/tree', (req, res) => {
+    const arr: number[] = <number[]>(JSON.parse(req.query.values as string));
+    const tree = new Tree(arr);
+    res.json(tree.getTree());
+});
 
-    public getTree(): BSTNode | null {
-        return this.rootNode;
-    }
+app.get('/tree/max-depth', (req, res) => {
+    const arr: number[] = <number[]>(JSON.parse(req.query.values as string));
+    const tree = new Tree(arr);
+    res.json(tree.getTreeDepthMaxima());
+});
 
-    public getTreeDepthMaxima(): TreeDepthMaxima {
-        const deepestDepth = Object.keys(this.depthHash).sort((a: any, b: any) => b - a)[0];
-        return { depth: +deepestDepth, deepest: (this.depthHash[+deepestDepth].length > 1 ? this.depthHash[+deepestDepth] : this.depthHash[+deepestDepth][0]) };
-    }
-}
-
-const tree = new Tree([12, 11, 10, 90, 82, 7, 9, 9]);
-
-// console.log(JSON.stringify(tree, null, 4));
-console.log(tree.getTreeDepthMaxima());
+app.listen(port, () => {
+    return console.log(`server is listening on ${port}`);
+});
