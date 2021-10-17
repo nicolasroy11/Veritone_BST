@@ -1,12 +1,11 @@
 class BSTNode {
-    constructor(data: number) {
-        this.data = data;
-        this.left = undefined;
-        this.right = undefined;
-    }
     public data: number;
     public left: BSTNode | undefined;
     public right: BSTNode | undefined;
+    constructor(data: number) {
+        this.data = data;
+    }
+
     public insert(data: number, depthHash?: any) {
         this._insert(data, 0, depthHash);
     }
