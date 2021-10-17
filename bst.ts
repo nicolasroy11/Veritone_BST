@@ -6,11 +6,11 @@ class BSTNode {
         this.data = data;
     }
 
-    public insert(data: number, depthHash?: any) {
+    public insert(data: number, depthHash?: { [depth: number]: number[] }) {
         this._insert(data, 0, depthHash);
     }
 
-    private _insert(data: number, depth: number, depthHash?: any) {
+    private _insert(data: number, depth: number, depthHash?: { [depth: number]: number[] }) {
         if (data <= this.data && this.left) {
             this.left._insert(data, ++depth, depthHash);
         } else if (data <= this.data) {
