@@ -9,16 +9,31 @@ app.get('/', (req, res) => {
 });
 
 app.get('/tree', (req, res) => {
-    const arr: number[] = <number[]>(JSON.parse(req.query.values as string));
-    const tree = new Tree(arr);
-    res.json(tree.getTree());
+    try {
+        const arr: number[] = <number[]>(JSON.parse(req.query.values as string));
+        const tree = new Tree(arr);
+        res.json(tree.getTree());
+    } catch {
+        res.send('An error occured!');
+    }
+
 });
 
 app.get('/tree/max-depth', (req, res) => {
-    const arr: number[] = <number[]>(JSON.parse(req.query.values as string));
-    const tree = new Tree(arr);
-    res.json(tree.getTreeDepthMaxima());
+    try {
+        const arr: number[] = <number[]>(JSON.parse(req.query.values as string));
+        const tree = new Tree(arr);
+        res.json(tree.getTreeDepthMaxima());
+    } catch {
+        res.send('An error occured!');
+    }
 });
+
+app.get('*', function (req, res) {
+    res.status(404).send('That path does not exist!');
+});
+
+
 
 app.listen(port, () => {
     return console.log(`server is listening on ${port}`);
