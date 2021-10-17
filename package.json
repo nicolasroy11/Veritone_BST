@@ -1,0 +1,23 @@
+{
+  "name": "veritone_bst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && nodemon build/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolasroy11/Veritone_BST.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolasroy11/Veritone_BST/issues"
+  },
+  "homepage": "https://github.com/nicolasroy11/Veritone_BST#readme",
+  "dependencies": {
+    "typescript": "^4.4.4"
+  }
+}
