@@ -10,7 +10,7 @@ class BSTNode {
         this._insert(data, 0, depthHash);
     }
 
-    private _insert(data: number, depth: number = 0, depthHash?: any) {
+    private _insert(data: number, depth: number, depthHash?: any) {
         if (data <= this.data && this.left) {
             this.left._insert(data, ++depth, depthHash);
         } else if (data <= this.data) {
