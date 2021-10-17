@@ -1,6 +1,6 @@
 // This solution does not get run.
-// This is an alternative to the regular solution. Instead of creating a hash, it calculates the deepest node during value insertion and returns it directly
-// needs to be adjusted to return all values at the deepest level instead of only the last one processed.
+// This is an alternative to the regular solution. Instead of creating a hash, the deepest node is calculated during value insertion and is returned directly.
+// This needs to be adjusted to return all values at the deepest level instead of only the last one processed.
 
 class BSTNode {
     public data: number;
@@ -32,9 +32,6 @@ class BSTNode {
 class TreeDepthMaxima {
     deepest: number[] | number | undefined;
     depth: number | undefined;
-    constructor() {
-        this.deepest = [];
-    }
 }
 
 export default class Tree {
