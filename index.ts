@@ -2,7 +2,7 @@ import express from 'express';
 import Tree from './bst';
 
 const app = express();
-app.set('json spaces', 4);
+app.set('json spaces', 6);
 const port = 3000;
 
 app.get('/', (req, res) => {
@@ -25,6 +25,16 @@ app.get('/tree/max-depth', (req, res) => {
         const arr: number[] = <number[]>(JSON.parse(req.query.values as string));
         const tree = new Tree(arr);
         res.json(tree.getTreeDepthMaxima());
+    } catch {
+        res.send('An error occured!');
+    }
+});
+
+app.get('/tree/all', (req, res) => {
+    try {
+        const arr: number[] = <number[]>(JSON.parse(req.query.values as string));
+        const tree = new Tree(arr);
+        res.json({maxima: tree.getTreeDepthMaxima(), tree: tree.getTree()});
     } catch {
         res.send('An error occured!');
     }

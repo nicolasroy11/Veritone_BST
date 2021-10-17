@@ -7,7 +7,8 @@ To see this bit of functionality in action, follow these steps:
 3. go to localhost:3000
 4. to see a tree structure, use the following pattern: http://localhost:3000/tree?values=[12,11,90,32,8]
 5. to see the maxima of the tree as required by the exercise, use the following pattern: http://localhost:3000/tree/max-depth?values=[12,11,90,32,8]
-6. from there, you can change the values at will to test
+6. to see both maxima and tree for comparative visualization, use the following pattern: http://localhost:3000/tree/all?values=[12,11,90,32,8]
+7. from there, you can change the values at will to test
 
 ## Implementation of a binary search tree
 The Tree class is instantiated with an array of integer values (ex: const tree = new Tree([12, 11, 10, 90, 82, 7, 9, 9])). To obtain the deepest value or values (several values can exist at the same depth), the user has to invoke the getTreeDepthMaxima() method on the tree instance. Example below:
