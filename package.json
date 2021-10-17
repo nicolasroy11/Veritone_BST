@@ -4,8 +4,7 @@
   "description": "",
   "main": "build/index.js",
   "scripts": {
-    "start": "npm i && tsc && node build/index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm i && tsc && node build/index"
   },
   "repository": {
     "type": "git",
